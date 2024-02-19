@@ -19,3 +19,5 @@ b) User_interface
 In order to use the framework it is necessary to open R, install the packages in Module0, open User_interface.R and set the
 working directory in the folder where the aforementioned archive has been extracted.
 ## Content
+.
+├── Modules/        # Directory contains Modules\algorithms.
