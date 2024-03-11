@@ -6,6 +6,7 @@
 #############################################################################################
 setwd(path2)
 
+
 for(i in 1:nrow(wb))   {  
 
   lines <- unlist(stringr::str_split(pdftools::pdf_text(wb[i,]), "\n"))
@@ -45,6 +46,7 @@ for(i in 1:nrow(wb))   {
           df3[i,5] <- a
         }
     }
+    
     test <- lines[start:(start+360)]
     res<-data.frame(str_detect(test,"2.2.2. Subset|3.2.2. Subset|2.1.4. Subset"))
     colnames(res)<-"Result"
@@ -79,6 +81,7 @@ for(i in 1:nrow(wb))   {
         df3[i,16] <- a
       }
     }
+    
     test <- lines[start:(start+560)]
     res<-data.frame(str_detect(test,"2.3.2. Subset|3.3.2. Subset"))
     colnames(res)<-"Result"
@@ -150,6 +153,7 @@ for(i in 1:nrow(wb))   {
           df3[i,5] <- a
         }
       }
+      
       test <- lines[start:(start+360)]
       start <- stringr::str_which(lines, "C.2. PAEDIATRIC")
       if (length(start) == 1 ){
@@ -187,6 +191,7 @@ for(i in 1:nrow(wb))   {
           df3[i,16] <- a
         }
       }
+        
       test <- lines[start:(start+560)]
       start <- stringr::str_which(lines, "C.3. PAEDIATRIC")
       if (length(start) == 1 ){
