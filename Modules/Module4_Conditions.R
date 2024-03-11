@@ -62,7 +62,6 @@ for(i in 1:nrow(wb))   {
             if (a2 !=""){
               a<-paste0(a,"; ",a2)
             }
-
             if (substr(test[res2+jj+1], nchar(test[res2+jj+1]), nchar(test[res2+jj+1]))==":" & nchar(test[res2+jj+1])<50){
               break
             }
