@@ -12,10 +12,11 @@ for(i in 1:N)   {
     html_nodes("a") %>%       # find all links in the page
     html_attr("href") %>%     # get the url for these links
     str_subset("\\.pdf") 
-  dir <- paste0(basename(substr(raw_list,55,100)))
-  a <- sub(".*/", "", df$URL[i])
-  dir <- paste0(dir,"_",a,".pdf")
-  ifelse(is.na(raw_list),print("Maurizio is sad"),download.file(raw_list, dir, mode="wb"))
+  a <- "https://www.ema.europa.eu"
+  dir <- paste0(a,raw_list)
+  fn = substr(dir,53,63)
+  fn = paste0(fn,"_",i,".pdf")
+  ifelse(is.na(raw_list),print("Maurizio is sad"),download.file(dir, fn, mode="wb"))
 }
 
 setwd(Path1)
