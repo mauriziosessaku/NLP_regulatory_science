@@ -7,7 +7,6 @@
 setwd(path2)
 
 for(i in 1:nrow(wb))   {  
-  
   lines <- unlist(stringr::str_split(pdftools::pdf_text(wb[i,]), "\n"))
   start <- stringr::str_which(lines, "2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN")
   if (length(start) == 1 ){
@@ -35,9 +34,9 @@ for(i in 1:nrow(wb))   {
                     a2 <- str_trim( test2[res+jj,2], "left")
                     if (a2 !=""){
                       a<-paste0(a," ",a2)
-                    }
+                }
             }
-          }
+           }
           }
           a <- str_trim(a, "right")
           a <- str_trim(a, "left")
@@ -222,7 +221,6 @@ for(i in 1:nrow(wb))   {
   }
   }
   } 
-
 setwd(Path1)
 
 ###########################################
