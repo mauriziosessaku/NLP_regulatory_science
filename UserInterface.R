@@ -11,10 +11,10 @@ setwd(Path1)
 
 #Module 0 - Libraries & functions
 source("Codes/Modules/Module0.R")
-
+path2<-paste("PIP", Sys.Date(), sep = "_")
 
 #MODULE 1 - Retrieve excel and links
-url <- "https://www.ema.europa.eu/sites/default/files/Medicines_output_paediatric_investigation_plans.xlsx"
+url <- "https://www.ema.europa.eu/system/files/documents/other/medicines_output_paediatric_investigation_plans_en.xlsx"
 FileName <- "Medicines_output_paediatric_investigation_plans"
 source("Codes/Modules/Module1.R")
 
