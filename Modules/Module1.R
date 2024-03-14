@@ -4,7 +4,6 @@
 #Last change: 09/02/2024
 #Authors: Saeed Shakibfar & Maurizio Sessa
 #############################################################################################
-path2<-paste("PIP", Sys.Date(), sep = "_")
 dir.create(path2)
 setwd(path2)
 
