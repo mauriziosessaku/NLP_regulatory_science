@@ -7,7 +7,6 @@
 setwd(path2)
 
 for(i in 1:nrow(wb))   {  
-
   lines <- unlist(stringr::str_split(pdftools::pdf_text(wb[i,]), "\n"))
   start <- stringr::str_which(lines, "Scope of the application")
   if (length(start) == 1 ){
@@ -58,7 +57,6 @@ for(i in 1:nrow(wb))   {
          a<-test[res2]
           for (jj in 1: 10){ 
             a2 <- str_trim( test[res2+jj], "left")
-            
             if (a2 !=""){
               a<-paste0(a,"; ",a2)
             }
@@ -80,7 +78,6 @@ for(i in 1:nrow(wb))   {
       }
     }
     }
-  
   }
 }
 setwd(Path1)
