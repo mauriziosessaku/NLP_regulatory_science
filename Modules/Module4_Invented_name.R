@@ -10,7 +10,6 @@ for(i in 1:nrow(wb))   {
 
   lines <- unlist(stringr::str_split(pdftools::pdf_text(wb[i,]), "\n"))
   start <- stringr::str_which(lines, "Scope of the application")
-
   if (length(start) == 1 ){
     test <- lines[start:(start+40)]
     res<-data.frame(str_detect(test,"Invented"))
@@ -23,15 +22,12 @@ for(i in 1:nrow(wb))   {
           a<-test[res2]
           for (jj in 1: 10){ 
             a2 <- str_trim( test[res2+jj], "left")
-            
             if (a2 !=""){
               a<-paste0(a,"; ",a2)
             }
-            
             if (is.na(test[res2+jj+1])){
               break
              }
-            
             if (substr(test[res2+jj+1], nchar(test[res2+jj+1]), nchar(test[res2+jj+1]))==":" & nchar(test[res2+jj+1])<50){
               break
             }
