@@ -90,6 +90,9 @@ source("Codes/Modules/Module4_Deferral_for_measures.R")
 #source("Codes/Modules/Module4_Ema_number.R")
 
 
+#Saving
+write_xlsx(df2,paste0("DataFrame_", path2,".xlsx"))
+
 
 #For additional variables 
 #Module 5_Conditions1
@@ -124,6 +127,10 @@ source("Codes/Modules/Module5_Other_studies1.R")
 
 #Module 5_Other_measures1
 source("Codes/Modules/Module5_Other_measures1.R") 
+
+
+#Saving
+write_xlsx(df3,paste0("Ex_DataFrame_", path2,".xlsx"))
 
 
 #######################
