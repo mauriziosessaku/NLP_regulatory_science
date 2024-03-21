@@ -15,7 +15,7 @@ for(i in 1:N)   {
   a <- "https://www.ema.europa.eu"
   dir <- paste0(a,raw_list)
   fn = substr(dir,53,63)
-  fn = paste0(fn,"_",i,".pdf")
+  fn = paste0(df$`Decision number`[i],"_",fn,"_",i,".pdf")
   ifelse(is.na(raw_list),print("Maurizio is sad"),download.file(dir, fn, mode="wb"))
 }
 
