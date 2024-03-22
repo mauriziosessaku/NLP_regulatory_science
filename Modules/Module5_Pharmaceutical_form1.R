@@ -11,7 +11,7 @@ for(i in 1:nrow(wb))   {
   start <- stringr::str_which(lines, criteria2)
   if (length(start) == 1 ){
     test <- lines[start:(start+80)]
-    res<-data.frame(str_detect(test,"2.1.3. Pharmaceutical form|3.1.3. Pharmaceutical form|3.4. Pharmaceutical|• Formulation"))
+    res<-data.frame(str_detect(test,criteria2))
     colnames(res)<-"Result"
     res<-subset(res,res$Result==TRUE)
     if ( nrow(res) > 0 ){
