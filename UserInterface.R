@@ -128,6 +128,8 @@ source("Codes/Modules/Module5_Other_studies1.R")
 #Module 5_Other_measures1
 source("Codes/Modules/Module5_Other_measures1.R") 
 
+#Module 5_ConditionWaiver
+source("Codes/Modules/Module5_ConditionWaiver1.R") 
 
 #Saving
 write_xlsx(df3,paste0("Ex_DataFrame_", path2,".xlsx"))
