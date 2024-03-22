@@ -69,7 +69,15 @@ df3 <- data.frame(EMA_Document_number=character(),
                   Extrapolation3=character(),	
                   Other_studies3=character(),
                   Other_measures3=character(),
+                  ConditionWaiver1=character(),
+                  ConditionWaiver2=character(),
+                  ConditionWaiver3=character(),
                   stringsAsFactors=FALSE) 
+
+
+criteria1<-"2. Paediatric|3. Paediatric|C.1. PAEDIATRIC|C. PAEDIATRIC|1. Paediatric investigation plan"
+criteria2<-"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|1. Paediatric investigation plan"
+
 
 setwd(Path1)
 ###########################################
