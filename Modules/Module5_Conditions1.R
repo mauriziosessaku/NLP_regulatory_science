@@ -10,7 +10,7 @@ setwd(path2)
 for(i in 1:nrow(wb))   {  
   
   lines <- unlist(stringr::str_split(pdftools::pdf_text(wb[i,]), "\n"))
-  start <- stringr::str_which(lines, "2. Paediatric|3. Paediatric Investigation Plan|C. PAEDIATRIC INVESTIGATION PLAN")
+  start <- stringr::str_which(lines,criteria2)
   
   if (length(start) == 1 ){
     
