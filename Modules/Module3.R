@@ -72,6 +72,12 @@ df3 <- data.frame(EMA_Document_number=character(),
                   ConditionWaiver1=character(),
                   ConditionWaiver2=character(),
                   ConditionWaiver3=character(),
+                  ConditionWaiver4=character(),
+                  ConditionWaiver5=character(),
+                  ConditionWaiver6=character(),
+                  ConditionWaiver7=character(),
+                  ConditionWaiver8=character(),
+                  ConditionWaiver9=character(),
                   stringsAsFactors=FALSE) 
 
 
