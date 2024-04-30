@@ -18,12 +18,26 @@ for(i in 1:nrow(wb))   {
   res<-subset(res,res$Result==TRUE)
   res<-row.names(res)[1]
   if (!is.na(res)){
-   a <- as.numeric(res)
-   a<-sub(".*p","",test[a])
-   df2[i,2] <- str_trim( paste0("P",a), "left") 
-      }
+    
+    a <- as.numeric(res)
+    
+   
+    
+    
+    a<-sub(".*p","",test[a])
+      
+     
+        
+        df2[i,2] <- str_trim( paste0("P",a), "left") 
+        
+      
+    }
+    
 
+  
   res<-data.frame(str_detect(test[1:20],"emea/"))
+  
+  #res<-data.frame(str_detect(test,"emea-| emea/"))
   colnames(res)<-"Result"
   res<-subset(res,res$Result==TRUE)
   res<-as.numeric(row.names(res)[1])
@@ -62,8 +76,8 @@ for(i in 1:nrow(wb))   {
       a<-sub(".*ema/","",a)
       a<-sub(").*","",a)
       df2[i,1] <- paste0("ema/",a)
-      df3[i,1] <- paste0("eme/",a)
-      
+      #df3[i,1]<- paste0("emea",a)
+      df3[i,1]<- paste0("eme/",a)
     }
     
     }
