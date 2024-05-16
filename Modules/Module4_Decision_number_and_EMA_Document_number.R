@@ -77,7 +77,7 @@ for(i in 1:nrow(wb))   {
       a<-sub(").*","",a)
       df2[i,1] <- paste0("ema/",a)
       #df3[i,1]<- paste0("emea",a)
-      df3[i,1]<- paste0("eme/",a)
+      df3[i,1]<- paste0("ema/",a)
     }
     
     }
