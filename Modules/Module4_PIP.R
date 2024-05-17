@@ -8,10 +8,10 @@ setwd(path2)
 
 for(i in 1:nrow(wb))   {  
   lines <- unlist(stringr::str_split(pdftools::pdf_text(wb[i,]), "\n"))
-  start <- stringr::str_which(lines, criteria1)
+  start <- stringr::str_which(lines, criteria2)
   if (length(start) == 1 ){
     test <- lines[start:(start+200)]
-    res<-data.frame(str_detect(test,"Paediatric investigation plan|Paediatric Investigation Plan"))
+    res<-data.frame(str_detect(test,"Paediatric|PAEDIATRIC"))
     colnames(res)<-"Result"
     res<-subset(res,res$Result==TRUE)
     res<-as.numeric(row.names(res)[1])
