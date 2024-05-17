@@ -6,7 +6,6 @@
 #############################################################################################
 setwd(path2)
 
-
 for(i in 1:nrow(wb))   {  
   
   lines <- unlist(stringr::str_split(pdftools::pdf_text(wb[i,]), "\n"))
