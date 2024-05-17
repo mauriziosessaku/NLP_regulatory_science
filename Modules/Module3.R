@@ -75,13 +75,12 @@ df3 <- data.frame(EMA_Document_number=character(),
                   ConditionWaiver4=character(),
                   ConditionWaiver5=character(),
                   ConditionWaiver6=character(),
-                  ConditionWaiver7=character(),
-                  ConditionWaiver8=character(),
-                  ConditionWaiver9=character(),
+                  Ground4=character(),
+                  Ground5=character(),
+                  Ground6=character(),
                   stringsAsFactors=FALSE) 
 
 
-criteria1<-"2. Paediatric|3. Paediatric|C.1. PAEDIATRIC|C. PAEDIATRIC|1. Paediatric investigation plan"
 criteria2<-"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|1. Paediatric investigation plan"
 
 
