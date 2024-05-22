@@ -83,7 +83,6 @@ df3 <- data.frame(EMA_Document_number=character(),
 
 criteria2<-"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|1. Paediatric investigation plan"
 
-
 setwd(Path1)
 ###########################################
 # END
