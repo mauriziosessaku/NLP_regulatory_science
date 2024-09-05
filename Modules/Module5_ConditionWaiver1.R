@@ -1,10 +1,11 @@
 #############################################################################################
 #Module 5_ConditionWaiver1AndGround
 #Version 1.0 
-#Last change: 18/05/2024
+#Last change: 05/09/2024
 #Authors: Saeed Shakibfar & Maurizio Sessa
 #############################################################################################
 setwd(path2)
+
 
 for(i in 1:nrow(wb))   {  
   
@@ -30,7 +31,7 @@ for(i in 1:nrow(wb))   {
           
           
           if (a2 !=""){
-            a<-paste0(a,"; ",a2)
+            a<-paste0(a," ",a2)
           }
         }
         if (is.na(test[res2+jj+1])){
@@ -47,7 +48,7 @@ for(i in 1:nrow(wb))   {
           break
           
         }
-        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.2. Condition:")){
+        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.2. Condition:|1.2. Condition")){
           break
           
           
@@ -78,7 +79,7 @@ for(i in 1:nrow(wb))   {
             
             
             if (a2 !=""){
-              a<-paste0(a,"; ",a2)
+              a<-paste0(a," ",a2)
             }
           }
           if (is.na(test[res2+jj+1])){
@@ -95,7 +96,7 @@ for(i in 1:nrow(wb))   {
             break
             
           }
-          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.2. Condition:")){
+          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.2. Condition:|1.2. Condition")){
             break
             
             
@@ -126,7 +127,7 @@ for(i in 1:nrow(wb))   {
           
           
           if (a2 !=""){
-            a<-paste0(a,"; ",a2)
+            a<-paste0(a," ",a2)
           }
         }
         if (is.na(test[res2+jj+1])){
@@ -143,7 +144,7 @@ for(i in 1:nrow(wb))   {
           break
           
         }
-        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.3. Condition:")){
+        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.3. Condition:|1.3. Condition")){
           break
           
           
@@ -157,7 +158,9 @@ for(i in 1:nrow(wb))   {
       a <- str_trim(a, "left")
       df3[i,36] <- a
       
-      test <- lines[start:(start+50)]
+      #test <- lines[start:(start+50)]
+      test <- a
+      
       res<-data.frame(str_detect(test,"on the grounds "))
       colnames(res)<-"Result"
       res<-subset(res,res$Result==TRUE)
@@ -173,7 +176,7 @@ for(i in 1:nrow(wb))   {
             
             
             if (a2 !=""){
-              a<-paste0(a,"; ",a2)
+              a<-paste0(a," ",a2)
             }
           }
           if (is.na(test[res2+jj+1])){
@@ -190,12 +193,15 @@ for(i in 1:nrow(wb))   {
             break
             
           }
-          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.3. Condition:")){
+          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.3. Condition:|1.3. Condition")){
             break
             
             
           }
         }
+        #a<-stringi::stri_replace_first_fixed(a, "on the grounds", "XXX")
+        a<-sub(".*on the grounds","",a)
+        a<-paste0("on the grounds ",a)
         a <- gsub("•  ", "", a)
         a <-sub("\\s*and\\s*$", "", a)
         a <-sub("\\s*;\\s*$", "", a)
@@ -221,7 +227,7 @@ for(i in 1:nrow(wb))   {
           
           
           if (a2 !=""){
-            a<-paste0(a,"; ",a2)
+            a<-paste0(a," ",a2)
           }
         }
         if (is.na(test[res2+jj+1])){
@@ -238,7 +244,7 @@ for(i in 1:nrow(wb))   {
           break
           
         }
-        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.4. Condition:")){
+        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.4. Condition:|1.4. Condition")){
           break
           
           
@@ -253,7 +259,8 @@ for(i in 1:nrow(wb))   {
       
       df3[i,37] <- a
       
-      test <- lines[start:(start+50)]
+      #test <- lines[start:(start+50)]
+      test<- a
       res<-data.frame(str_detect(test,"on the grounds "))
       colnames(res)<-"Result"
       res<-subset(res,res$Result==TRUE)
@@ -269,7 +276,7 @@ for(i in 1:nrow(wb))   {
             
             
             if (a2 !=""){
-              a<-paste0(a,"; ",a2)
+              a<-paste0(a," ",a2)
             }
           }
           if (is.na(test[res2+jj+1])){
@@ -286,12 +293,14 @@ for(i in 1:nrow(wb))   {
             break
             
           }
-          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.4. Condition:")){
+          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.4. Condition:|1.4. Condition")){
             break
             
             
           }
         }
+        a<-sub(".*on the grounds","",a)
+        a<-paste0("on the grounds ",a)
         a <- gsub("•  ", "", a)
         a <-sub("\\s*and\\s*$", "", a)
         a <-sub("\\s*;\\s*$", "", a)
@@ -317,7 +326,7 @@ for(i in 1:nrow(wb))   {
           
           
           if (a2 !=""){
-            a<-paste0(a,"; ",a2)
+            a<-paste0(a," ",a2)
           }
         }
         if (is.na(test[res2+jj+1])){
@@ -334,7 +343,7 @@ for(i in 1:nrow(wb))   {
           break
           
         }
-        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.5. Condition:")){
+        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.5. Condition:|1.4. Condition")){
           break
           
           
@@ -349,7 +358,8 @@ for(i in 1:nrow(wb))   {
       
       df3[i,38] <- a
       
-      test <- lines[start:(start+50)]
+      #test <- lines[start:(start+50)]
+      test<-a
       res<-data.frame(str_detect(test,"on the grounds "))
       colnames(res)<-"Result"
       res<-subset(res,res$Result==TRUE)
@@ -365,7 +375,7 @@ for(i in 1:nrow(wb))   {
             
             
             if (a2 !=""){
-              a<-paste0(a,"; ",a2)
+              a<-paste0(a," ",a2)
             }
           }
           if (is.na(test[res2+jj+1])){
@@ -382,12 +392,14 @@ for(i in 1:nrow(wb))   {
             break
             
           }
-          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.5. Condition:")){
+          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.5. Condition:|1.5. Condition")){
             break
             
             
           }
         }
+        a<-sub(".*on the grounds","",a)
+        a<-paste0("on the grounds ",a)
         a <- gsub("•  ", "", a)
         a <-sub("\\s*and\\s*$", "", a)
         a <-sub("\\s*;\\s*$", "", a)
@@ -412,7 +424,7 @@ for(i in 1:nrow(wb))   {
           
           
           if (a2 !=""){
-            a<-paste0(a,"; ",a2)
+            a<-paste0(a," ",a2)
           }
         }
         if (is.na(test[res2+jj+1])){
@@ -429,7 +441,7 @@ for(i in 1:nrow(wb))   {
           break
           
         }
-        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.6. Condition:")){
+        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.6. Condition:|1.6. Condition")){
           break
           
           
@@ -443,7 +455,9 @@ for(i in 1:nrow(wb))   {
       a <- str_trim(a, "left")
       
       df3[i,39] <- a
-      test <- lines[start:(start+50)]
+      
+      #test <- lines[start:(start+50)]
+      test<-a
       res<-data.frame(str_detect(test,"on the grounds "))
       colnames(res)<-"Result"
       res<-subset(res,res$Result==TRUE)
@@ -459,7 +473,7 @@ for(i in 1:nrow(wb))   {
             
             
             if (a2 !=""){
-              a<-paste0(a,"; ",a2)
+              a<-paste0(a," ",a2)
             }
           }
           if (is.na(test[res2+jj+1])){
@@ -476,12 +490,14 @@ for(i in 1:nrow(wb))   {
             break
             
           }
-          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.6. Condition:")){
+          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.6. Condition:|1.6. Condition")){
             break
             
             
           }
         }
+        a<-sub(".*on the grounds","",a)
+        a<-paste0("on the grounds ",a)
         a <- gsub("•  ", "", a)
         a <-sub("\\s*and\\s*$", "", a)
         a <-sub("\\s*;\\s*$", "", a)
@@ -506,7 +522,7 @@ for(i in 1:nrow(wb))   {
           
           
           if (a2 !=""){
-            a<-paste0(a,"; ",a2)
+            a<-paste0(a," ",a2)
           }
         }
         if (is.na(test[res2+jj+1])){
@@ -523,7 +539,7 @@ for(i in 1:nrow(wb))   {
           break
           
         }
-        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.7. Condition:")){
+        if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.7. Condition:|1.7. Condition")){
           break
           
           
@@ -538,7 +554,8 @@ for(i in 1:nrow(wb))   {
       
       df3[i,40] <- a
       
-      test <- lines[start:(start+50)]
+      #test <- lines[start:(start+50)]
+      test<-a
       res<-data.frame(str_detect(test,"on the grounds "))
       colnames(res)<-"Result"
       res<-subset(res,res$Result==TRUE)
@@ -554,7 +571,7 @@ for(i in 1:nrow(wb))   {
             
             
             if (a2 !=""){
-              a<-paste0(a,"; ",a2)
+              a<-paste0(a," ",a2)
             }
           }
           if (is.na(test[res2+jj+1])){
@@ -571,12 +588,14 @@ for(i in 1:nrow(wb))   {
             break
             
           }
-          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.7. Condition:")){
+          if (str_detect(test[res2+jj+1],"2. Paediatric|3. Paediatric|C. PAEDIATRIC INVESTIGATION PLAN|C.1. PAEDIATRIC |C. PAEDIATRIC|Annex II|1.7. Condition:|1.7. Condition")){
             break
             
             
           }
         }
+        a<-sub(".*on the grounds","",a)
+        a<-paste0("on the grounds ",a)
         a <- gsub("•  ", "", a)
         a <-sub("\\s*and\\s*$", "", a)
         a <-sub("\\s*;\\s*$", "", a)
