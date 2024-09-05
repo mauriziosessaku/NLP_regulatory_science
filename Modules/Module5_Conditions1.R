@@ -1,7 +1,7 @@
 #############################################################################################
 #Module 5_Conditions1
 #Version 1.0 
-#Last change: 12/02/2024
+#Last change: 05/09/2024
 #Authors: Saeed Shakibfar & Maurizio Sessa
 #############################################################################################
 setwd(path2)
@@ -30,7 +30,7 @@ for(i in 1:nrow(wb))   {
             a2 <- str_trim( test[res2+jj], "left")
             
             if (a2 !=""){
-              a<-paste0(a,"; ",a2)
+              a<-paste0(a," ",a2)
             }
             
             if (is.na(test[res2+jj+1])){
@@ -53,11 +53,12 @@ for(i in 1:nrow(wb))   {
             }
             
           }
-          a<-stringi::stri_replace_first_fixed(a, "Condition:", "XXX")
+          a<-stringi::stri_replace_first_fixed(a, "Condition", "XXX")
           
          
           a<-sub(".*XXX","",a)
           a <- gsub("•  ", "", a)
+          a <- sub("^:\\s*", "", a)
           a <- str_trim(a, "right")
           a <- str_trim(a, "left")
           df3[i,2] <- a
@@ -82,7 +83,7 @@ for(i in 1:nrow(wb))   {
           a2 <- str_trim( test[res2+jj], "left")
           
           if (a2 !=""){
-            a<-paste0(a,"; ",a2)
+            a<-paste0(a," ",a2)
           }
           
           if (is.na(test[res2+jj+1])){
@@ -105,10 +106,11 @@ for(i in 1:nrow(wb))   {
           }
           
         }
-        a<-stringi::stri_replace_first_fixed(a, "Condition:", "XXX")
+        a<-stringi::stri_replace_first_fixed(a, "Condition", "XXX")
              
         a<-sub(".*XXX","",a)
         a <- gsub("•  ", "", a)
+        a <- sub("^:\\s*", "", a)
         a <- str_trim(a, "right")
         a <- str_trim(a, "left")
         df3[i,13] <- a
@@ -129,7 +131,7 @@ for(i in 1:nrow(wb))   {
           a2 <- str_trim( test[res2+jj], "left")
           
           if (a2 !=""){
-            a<-paste0(a,"; ",a2)
+            a<-paste0(a," ",a2)
           }
           
           if (is.na(test[res2+jj+1])){
@@ -152,9 +154,10 @@ for(i in 1:nrow(wb))   {
           }
           
         }
-        a<-stringi::stri_replace_first_fixed(a, "Condition:", "XXX")
+        a<-stringi::stri_replace_first_fixed(a, "Condition", "XXX")
         a<-sub(".*XXX","",a)
         a <- gsub("•  ", "", a)
+        a <- sub("^:\\s*", "", a)
         a <- str_trim(a, "right")
         a <- str_trim(a, "left")
         df3[i,24] <- a
@@ -186,7 +189,7 @@ for(i in 1:nrow(wb))   {
             a2 <- str_trim( test[res2+jj], "left")
             
             if (a2 !=""){
-              a<-paste0(a,"; ",a2)
+              a<-paste0(a," ",a2)
             }
             
             if (is.na(test[res2+jj+1])){
@@ -209,9 +212,10 @@ for(i in 1:nrow(wb))   {
             }
             
           }
-          a<-stringi::stri_replace_first_fixed(a, "Condition:", "XXX")
+          a<-stringi::stri_replace_first_fixed(a, "Condition", "XXX")
           a<-sub(".*XXX","",a)
           a <- gsub("•  ", "", a)
+          a <- sub("^:\\s*", "", a)
           a <- str_trim(a, "right")
           a <- str_trim(a, "left")
           df3[i,2] <- a
@@ -240,7 +244,7 @@ for(i in 1:nrow(wb))   {
             a2 <- str_trim( test[res2+jj], "left")
             
             if (a2 !=""){
-              a<-paste0(a,"; ",a2)
+              a<-paste0(a," ",a2)
             }
             
             if (is.na(test[res2+jj+1])){
@@ -263,9 +267,10 @@ for(i in 1:nrow(wb))   {
             }
             
           }
-          a<-stringi::stri_replace_first_fixed(a, "Condition:", "XXX")
+          a<-stringi::stri_replace_first_fixed(a, "Condition", "XXX")
           a<-sub(".*XXX","",a)
           a <- gsub("•  ", "", a)
+          a <- sub("^:\\s*", "", a)
           a <- str_trim(a, "right")
           a <- str_trim(a, "left")
           df3[i,13] <- a
@@ -293,7 +298,7 @@ for(i in 1:nrow(wb))   {
             a2 <- str_trim( test[res2+jj], "left")
             
             if (a2 !=""){
-              a<-paste0(a,"; ",a2)
+              a<-paste0(a," ",a2)
             }
             
             if (is.na(test[res2+jj+1])){
@@ -315,9 +320,10 @@ for(i in 1:nrow(wb))   {
             }
             
           }
-          a<-stringi::stri_replace_first_fixed(a, "Condition:", "XXX")
+          a<-stringi::stri_replace_first_fixed(a, "Condition", "XXX")
           a<-sub(".*XXX","",a)
           a <- gsub("•  ", "", a)
+          a <- sub("^:\\s*", "", a)
           a <- str_trim(a, "right")
           a <- str_trim(a, "left")
           df3[i,24] <- a
